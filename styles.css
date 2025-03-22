@@ -1,0 +1,494 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0f0f1a, #1a0f1a, #1a0a14);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.content {
+    text-align: center;
+    z-index: 10;
+    padding: 1rem;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+
+.logo-container {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    animation: breathe 5s infinite ease-in-out;
+    filter: drop-shadow(0 0 5px rgba(255, 70, 130, 0.5));
+    z-index: 2;
+}
+
+@keyframes breathe {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(255, 70, 130, 0.3));
+    }
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px rgba(255, 70, 130, 0.5));
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(255, 70, 130, 0.3));
+    }
+}
+
+/* Modernized and minimalistic app name styling */
+.app-name-container {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.app-name {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.app-name h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+}
+
+.underline-accent {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff467f, #ff3154);
+    border-radius: 2px;
+    animation: pulse-width 4s infinite ease-in-out;
+}
+
+@keyframes pulse-width {
+    0% {
+        width: 40%;
+        opacity: 0.7;
+    }
+    50% {
+        width: 70%;
+        opacity: 1;
+    }
+    100% {
+        width: 40%;
+        opacity: 0.7;
+    }
+}
+
+.tagline {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Enhanced Features Section */
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+    margin-bottom: 3rem;
+    margin-top: 2.5rem;
+    perspective: 1000px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 1.5rem 1.2rem;
+    width: 140px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.03), transparent);
+    z-index: 0;
+    transition: all 0.5s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    color: white;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.feature-item span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover span {
+    color: white;
+}
+
+/* Simplify animation for more minimalistic feel */
+.feature-item:nth-child(1) {
+    animation: subtle-float 8s infinite ease-in-out;
+    animation-delay: 0s;
+}
+
+.feature-item:nth-child(2) {
+    animation: subtle-float 8s infinite ease-in-out;
+    animation-delay: 2s;
+}
+
+.feature-item:nth-child(3) {
+    animation: subtle-float 8s infinite ease-in-out;
+    animation-delay: 4s;
+}
+
+.feature-item:nth-child(4) {
+    animation: subtle-float 8s infinite ease-in-out;
+    animation-delay: 6s;
+}
+
+@keyframes subtle-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Interactive ripple effect on click */
+.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments for enhanced features */
+@media (max-width: 768px) {
+    .feature-item {
+        width: 130px;
+        padding: 1.2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .features {
+        gap: 1.2rem;
+    }
+    
+    .feature-item {
+        width: calc(50% - 0.8rem);
+        max-width: 120px;
+        padding: 1rem 0.8rem;
+    }
+    
+    .feature-item:hover {
+        transform: translateY(-5px) rotateX(3deg) rotateY(-3deg);
+    }
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    color: #ff467f;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 70, 130, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.social-icon::before,
+.social-icon::after {
+    display: none;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    color: white;
+    background: linear-gradient(90deg, #ff467f, #ff3154);
+    box-shadow: 0 5px 15px rgba(255, 70, 130, 0.4);
+}
+
+.social-icon i {
+    position: relative;
+    z-index: 1;
+}
+
+/* Improved responsive styles */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .content {
+        padding: 0.8rem;
+    }
+    
+    .logo {
+        width: 100px;
+    }
+    
+    .app-name h2 {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    .feature-item {
+        width: 120px;
+        padding: 1rem;
+    }
+    
+    .feature-icon {
+        font-size: 1.8rem;
+    }
+    
+    .coming-soon-tag {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 80px;
+    }
+    
+    .app-name h2 {
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+    }
+    
+    .feature-item {
+        width: calc(50% - 1rem);
+        max-width: 110px;
+        padding: 0.8rem;
+    }
+    
+    .feature-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .feature-item span {
+        font-size: 0.8rem;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .coming-soon-tag {
+        font-size: 0.65rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .logo {
+        width: 70px;
+    }
+    
+    .app-name h2 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .tagline {
+        font-size: 0.7rem;
+    }
+    
+    .features {
+        gap: 0.8rem;
+    }
+    
+    .feature-item {
+        width: calc(50% - 0.5rem);
+        max-width: 100px;
+        padding: 0.6rem;
+    }
+}
+
+/* Remove the Coming Soon h1 styling and add a subtle coming-soon tag */
+.coming-soon-tag {
+    display: none;
+}
+
+/* Remove h1 styles since we're not using it anymore */
+h1 {
+    display: none;
+}
+
+/* Add space above the main paragraph to maintain spacing since h1 is removed */
+p:first-of-type {
+    margin-top: 1rem;
+}
+
+/* Add new minimalistic animation styles */
+.coming-soon-container {
+    position: relative;
+    margin-top: 30px;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.coming-soon-text {
+    font-size: 0.7rem;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.coming-soon-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 10px;
+}
+
+.coming-soon-dots span {
+    width: 4px;
+    height: 4px;
+    background-color: #ff467f;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0;
+}
+
+.coming-soon-dots span:nth-child(1) {
+    animation: pulse-dot 1.5s infinite ease-in-out;
+}
+
+.coming-soon-dots span:nth-child(2) {
+    animation: pulse-dot 1.5s infinite ease-in-out 0.3s;
+}
+
+.coming-soon-dots span:nth-child(3) {
+    animation: pulse-dot 1.5s infinite ease-in-out 0.6s;
+}
+
+@keyframes pulse-dot {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .coming-soon-container {
+        margin-top: 20px;
+    }
+    
+    .coming-soon-text {
+        font-size: 0.65rem;
+    }
+} 
